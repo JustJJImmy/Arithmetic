@@ -10,6 +10,30 @@
 1、
 要点：设立哨兵，作为临时存储和判断数组边界之用。
 
+
+int lenth(int *l) {
+int count = 0;
+while (*l) {
+count++;
+l++;
+}
+return count;
+}
+
+void printList(int *l) {
+while (*l != '\0') {
+printf("%d ", *l);
+l++;
+}
+printf("\n");
+}
+
+void swap(int *s, int *d) {
+int k = *s;
+*s = *d;
+*d = k;
+}
+
 int main()
 {
 int list[50] = { 3, 7, 5, 4, 2, 6, 1, 8, 9};
@@ -29,6 +53,7 @@ list[j + 1] = x; // 此时的 j 是最后一个 比 x 小的，所以将 x 赋值到 j + 1 即可。
 }
 }
 }
+
 
 2、
 不设立哨兵，如果 i 比 i - 1 那么就交换 i 和 i - 1，再 i --， 直到 i 为 0 或 i 比 i - 1 大
@@ -79,82 +104,65 @@ tl++;
 
 
 #include <iostream>
-int lenth(int *l) {
-	int count = 0;
-	while (*l) {
-		count++; 
-		l++;
-	}
-	return count;
-}
 
 void printList(int *l) {
-	while (*l != '\0') { 
+	while (*l != '\0') {
 		printf("%d ", *l);
 		l++;
 	}
 	printf("\n");
 }
 
-void swap(int *s, int *d) {
-	int k = *s;
-	*s = *d;
-	*d = k;
+
+///////
+template<class T>
+void insertSort(T *list, bool(cp)(T *a, T *b), void (swap)(T *a, T *b), T *(next)(T *a, bool pre), bool(isend)(T *a)) {
+	T *tl = next(list, false);
+	while (!isend(tl)) {
+		T *ti = tl;
+		T *tj = next(ti, true);
+		while (ti != list && cp(ti, tj)) {
+			swap(ti, next(ti, true));
+			ti = next(ti, true);
+			tj = next(ti, true);
+		}
+		tl = next(tl, false);
+	}
+}
+///////
+
+
+bool compareInt(int *a, int *b) {
+	return *a < *b;
+}
+bool compareIntL(int *a, int *b) {
+	return *a > *b;
+}
+void swapInt(int *a, int *b) {
+	int k = *a;
+	*a = *b;
+	*b = k;
+}
+int *nextInt(int *a, bool pre) {
+	return pre ? a - 1: a + 1;
+}
+bool isEnd(int *a) {
+	return *a == '\0';
 }
 
 int main()
 {
-	int list[50] = { 1, 7, 5, 4, 2, 6, 3, 8, 9};
-
-
+	int list[50] = { 10, 1, 7, 5, 4, 2, 6, 3, 8, 9};
 	printList(list);
 
-	//int n = lenth(list);
-	//for (int i = 1; i < n; i++) {
-	//	if (list[i] < list[i - 1]) {
-	//		int j = i - 1;
-	//		int x = list[i];
-	//		list[i] = list[i - 1];
-	//		while (x < list[j]) {
-	//			list[j + 1] = list[j];
-	//			j--;
-	//			printList(list);
-	//		}
-	//		list[j + 1] = x;
-	//		printList(list);
-	//	}
-	//}
+	insertSort<int>(list, compareInt, swapInt, nextInt, isEnd);
+	printList(list);
 
+	insertSort<int>(list, compareIntL, swapInt, nextInt, isEnd);
+	printList(list);
 
-	//int l = lenth(list);
-	//for (int i = 1; i < l; i++) {
-	//	for (int j = i; j > 0; j--) {
-	//		if (list[j] < list[j - 1]) {
-	//			int k = list[j];
-	//			list[j] = list[j - 1];
-	//			list[j - 1] = k;
-	//			printList(list);
-	//		}
-	//		else {
-	//			break;
-	//		}
-	//	}
-	//}
-
-
-	int *tl = list + 1;
-	while (*tl != '\0') {
-		int *ti = tl;
-		int *tj = tl - 1;
-		int k = 0;
-		while (*ti < *tj) {
-			k = *ti;
-			*ti-- = *tj;
-			*tj-- = k;
-			printList(list);
-		}
-		tl++;
-	}
+	insertSort<int>(list, compareInt, swapInt, nextInt, isEnd);
+	printList(list);
 
 	system("pause");
     return 0;

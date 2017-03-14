@@ -6,3 +6,7 @@ Arithmetic/ipch
 Arithmetic/Debug/
 Arithmetic/Release/
 Arithmetic/Arithmetic/Release/
+*.opendb
+Arithmetic/x64/
+Arithmetic/Arithmetic/x64/
+*.TMP
