@@ -36,65 +36,70 @@ int k = *s;
 
 int main()
 {
-int list[50] = { 3, 7, 5, 4, 2, 6, 1, 8, 9};
+	int list[50] = { 3, 7, 5, 4, 2, 6, 1, 8, 9};
+	// 默认第一个已经插入，后面的节点往前面插入
+	for (int i = 1; i < 10; i++){
+		// 哨兵
+		int k = list[i];
+		// 要插入的位置
+		int index = i;
+		// 从已排序的最后一个点开始插入
+		for (int j = i - 1; j >= 0; j-- ) {
+			if ( list[j] > k ){
+				// 如果 j 节点的值大于 k，那么就将 j 节点后移一位，并更新插入位置
+				list[j + 1] = list[j];
+				index = j;
+				printList(list);
+			}
+			else {
+				break;
+			}
+		}
+		list[index] = k;
+	}
+	printList(list);
+}
 
-int n = lenth(list);
-for (int i = 1; i < n; i++) {
-if (list[i] < list[i - 1]) {   // 如果 i 比 i - 1 小，那么 i 应该要前移
-int j = i - 1;	//
-int x = list[i];	// 这个就是哨兵了，所有比 x 大的，都往后移动一个位置
-list[i] = list[i - 1]; //
-while (x < list[j]) {
-list[j + 1] = list[j];
-j--;
-printList(list);
-}
-list[j + 1] = x; // 此时的 j 是最后一个 比 x 小的，所以将 x 赋值到 j + 1 即可。
-}
-}
-}
 
-
-2、
+2、这似乎是冒泡排序?
 不设立哨兵，如果 i 比 i - 1 那么就交换 i 和 i - 1，再 i --， 直到 i 为 0 或 i 比 i - 1 大
 int main()
 {
-int list[50] = { 3, 7, 5, 4, 2, 6, 1, 8, 9};
+	int list[50] = { 3, 7, 5, 4, 2, 6, 1, 8, 9};
 
-int l = lenth(list);
-for (int i = 1; i < l; i++) {			// 从 1 开始
-for (int j = i; j > 0; j--) {		//
-if (list[j] < list[j - 1]) {		//  j 从 i 开始，向前遍历， 如果 j 比 j - 1 小， 那么就交换，否则退出循环
-int k = list[j];
-list[j] = list[j - 1];
-list[j - 1] = k;
-printList(list);
-}
-else {
-break;
-}
-}
-}
+	int l = lenth(list);
+	for (int i = 1; i < l; i++) {			// 从 1 开始
+		for (int j = i; j > 0; j--) {		//
+			if (list[j] < list[j - 1]) {		//  j 从 i 开始，向前遍历， 如果 j 比 j - 1 小， 那么就交换，否则退出循环
+				int k = list[j];
+				list[j] = list[j - 1];
+				list[j - 1] = k;
+				printList(list);
+			}
+			else {
+				break;
+			}
+		}
+	}
 }
 
 
-3、
-2 的优化， 更少的代码
+3、2 的优化， 更少的代码
 int main()
 {
-int list[50] = { 3, 7, 5, 4, 2, 6, 1, 8, 9};
-int *tl = list + 1;
-while (*tl != '\0') {
-int *ti = tl;
-int *tj = tl - 1;
-while (*ti < *tj) {
-int k = *ti;
-*ti-- = *tj;
-*tj-- = k;
-printList(list);
-}
-tl++;
-}
+	int list[50] = { 3, 7, 5, 4, 2, 6, 1, 8, 9};
+	int *tl = list + 1;
+	while (*tl != '\0') {
+		int *ti = tl;
+		int *tj = tl - 1;
+		while (*ti < *tj) {
+			int k = *ti;
+			*ti-- = *tj;
+			*tj-- = k;
+			printList(list);
+		}
+		tl++;
+	}
 }
 
 
@@ -152,8 +157,34 @@ bool isEnd(int *a) {
 
 int main()
 {
-	int list[50] = { 10, 1, 7, 5, 4, 2, 6, 3, 8, 9};
+	int list[50] = { 10, 7, 1 , 5, 8, 12, 6, 3, 8, 9};
 	printList(list);
+
+	// 默认第一个已经插入，后面的节点往前面插入
+	for (int i = 1; i < 10; i++){
+		// 哨兵
+		int k = list[i];
+		// 要插入的位置
+		int index = i; 
+		// 从已排序的最后一个点开始插入
+		for (int j = i - 1; j >= 0; j-- ) {
+			if ( list[j] > k ){
+				// 如果 j 节点的值大于 k，那么就将 j 节点后移一位，并更新插入位置
+				list[j + 1] = list[j];
+				index = j;
+				printList(list);
+			}
+			else {
+				break;
+			}
+		}
+		list[index] = k;
+	}
+	printList(list);
+
+
+
+
 
 	insertSort<int>(list, compareInt, swapInt, nextInt, isEnd);
 	printList(list);
