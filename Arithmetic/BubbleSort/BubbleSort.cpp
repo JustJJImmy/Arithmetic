@@ -1,4 +1,4 @@
-// BubbleSort.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+// BubbleSort.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 
 #include <iostream>
@@ -16,14 +16,14 @@ int main()
 	int n = 9;
 	printList(list, n);
 
-	//// ÉıĞò£¬´óµÄÏÈÅÅ£¬Ğ¡µÄÏòÉÏÃ°Åİ
+	//// å‡åºï¼Œå¤§çš„å…ˆæ’ï¼Œå°çš„å‘ä¸Šå†’æ³¡
 	//for ( int i = n - 1; i > 0; ){
-	//	//¡¡ÒÔ i ÎªÉÚ±ø£¬´Ó ¶¥²¿ ¿ªÊ¼¡£
+	//	//ã€€ä»¥ i ä¸ºå“¨å…µï¼Œä» é¡¶éƒ¨ å¼€å§‹ã€‚
 	//	printf("i:%d\n", i);
 	//	int lastIndex = 0;
 	//	bool hasSwap = false;
 	//	for (int j = 0; j < i; j++){
-	//		// Èç¹û j ±ÈËüºóÃæµÄÊı´ó£¬ÄÇÃ´¾Í½»»»
+	//		// å¦‚æœ j æ¯”å®ƒåé¢çš„æ•°å¤§ï¼Œé‚£ä¹ˆå°±äº¤æ¢
 	//		if ( list[j] > list[j+1] ){
 	//			int k = list[j];
 	//			list[j] = list[j + 1];
@@ -32,25 +32,25 @@ int main()
 	//			lastIndex = j;
 	//		}
 	//	}
-	//	// Èç¹ûÒ»´Î±éÀúÃ»ÓĞ·¢Éú½»»»£¬ËµÃ÷ÒÑ¾­ÅÅºÃÁË£¬¿ÉÒÔÌáÇ°½áÊø
+	//	// å¦‚æœä¸€æ¬¡éå†æ²¡æœ‰å‘ç”Ÿäº¤æ¢ï¼Œè¯´æ˜å·²ç»æ’å¥½äº†ï¼Œå¯ä»¥æå‰ç»“æŸ
 	//	if ( !hasSwap ){
 	//		break;
 	//	}
-	//	// ¼ÇÂ¼×îºóÒ»´Î½»»»µÄ index£¬ÓÃÀ´µ±×öÏÂÒ»´ÎÑ­»·µÄÉÚ±ø
+	//	// è®°å½•æœ€åä¸€æ¬¡äº¤æ¢çš„ indexï¼Œç”¨æ¥å½“åšä¸‹ä¸€æ¬¡å¾ªç¯çš„å“¨å…µ
 	//	i = lastIndex;
 	//	printList(list, n);
 	//}
 	//printList(list, n);
 
 	//printf("==================\n");
-	//// ÉıĞò£¬Ğ¡µÄÏÈÅÅ£¬´óµÄÏòÏÂ³Á
+	//// å‡åºï¼Œå°çš„å…ˆæ’ï¼Œå¤§çš„å‘ä¸‹æ²‰
 	//for (int i = 0; i < n;) {
-	//	//¡¡ÒÔ i ÎªÉÚ±ø£¬´Ó µ×²¿ ¿ªÊ¼¡£
+	//	//ã€€ä»¥ i ä¸ºå“¨å…µï¼Œä» åº•éƒ¨ å¼€å§‹ã€‚
 	//	printf("i:%d\n", i);
 	//	int lastIndex = i;
 	//	bool hasswap = false;
 	//	for (int j = n - 1; j > i; j--) {
-	//		// Èç¹û j ±ÈËüÇ°ÃæµÄÊıĞ¡£¬ÄÇÃ´¾Í½»»»
+	//		// å¦‚æœ j æ¯”å®ƒå‰é¢çš„æ•°å°ï¼Œé‚£ä¹ˆå°±äº¤æ¢
 	//		if (list[j] < list[j - 1]) {
 	//			int k = list[j];
 	//			list[j] = list[j - 1];
@@ -59,7 +59,7 @@ int main()
 	//			lastIndex = j;
 	//		}
 	//	}
-	//	// Èç¹ûÒ»´Î±éÀúÃ»ÓĞ·¢Éú½»»»£¬ËµÃ÷ÒÑ¾­ÅÅºÃÁË£¬¿ÉÒÔÌáÇ°½áÊø
+	//	// å¦‚æœä¸€æ¬¡éå†æ²¡æœ‰å‘ç”Ÿäº¤æ¢ï¼Œè¯´æ˜å·²ç»æ’å¥½äº†ï¼Œå¯ä»¥æå‰ç»“æŸ
 	//	if ( !hasswap ){
 	//		break;
 	//	}
@@ -70,14 +70,14 @@ int main()
 
 
 	//printf("==================\n");
-	// ÉıĞò£¬Ë«ÏòÃ°Åİ£¬ÏÈ´Óµ×²¿¿ªÊ¼ÏòÉÏÃ°Åİ
+	// å‡åºï¼ŒåŒå‘å†’æ³¡ï¼Œå…ˆä»åº•éƒ¨å¼€å§‹å‘ä¸Šå†’æ³¡
 	int leftIndex = 0;
 	int rightIndex = n - 1;
 	while (leftIndex < rightIndex) {
 		int lastIndex = leftIndex;
 		bool hasSwap = false;
 
-		// ÏÈÏòÉÏÃ°ÅİÒ»ÂÖ
+		// å…ˆå‘ä¸Šå†’æ³¡ä¸€è½®
 		for (int j = leftIndex; j < rightIndex; j++) {
 			if ( list[j] > list[j + 1] ){
 				int k = list[j];
@@ -87,16 +87,16 @@ int main()
 				lastIndex = j;
 			}
 		}
-		// ÌáÇ°½áÊø
+		// æå‰ç»“æŸ
 		if ( !hasSwap )	{
 			break;
 		}
-		// ÏòÉÏÃ°Åİ£¬¸üĞÂµÄÊÇÏÂÏŞ
+		// å‘ä¸Šå†’æ³¡ï¼Œæ›´æ–°çš„æ˜¯ä¸‹é™
 		rightIndex = lastIndex;
 		printList(list, n);
-		printf("leftIndex:%d£¬ rightIndex:%d\n", leftIndex, rightIndex);
+		printf("leftIndex:%dï¼Œ rightIndex:%d\n", leftIndex, rightIndex);
 
-		// ÔÙÏòÏÂÃ°ÅİÒ»ÂÖ
+		// å†å‘ä¸‹å†’æ³¡ä¸€è½®
 		for (int j = rightIndex; j > leftIndex; j--) {
 			if (list[j] < list[j - 1] ) {
 				int k = list[j];
@@ -106,14 +106,14 @@ int main()
 				lastIndex = j;
 			}
 		}
-		// ÌáÇ°½áÊø
+		// æå‰ç»“æŸ
 		if (!hasSwap) {
 			break;
 		}
-		// ÏòÏÂÃ°Åİ£¬¸üĞÂµÄÊÇÉÏÏŞ
+		// å‘ä¸‹å†’æ³¡ï¼Œæ›´æ–°çš„æ˜¯ä¸Šé™
 		leftIndex = lastIndex;
 		printList(list, n);
-		printf("leftIndex:%d£¬ rightIndex:%d\n", leftIndex, rightIndex);
+		printf("leftIndex:%dï¼Œ rightIndex:%d\n", leftIndex, rightIndex);
 	}
 	printList(list, n);
 
