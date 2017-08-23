@@ -67,12 +67,12 @@ int main()
 {
 
 	int a[10] = { 3,7,5,1,2,4,9,6,10,8 };
-	cout << "初始值：";
+	cout << " 初始值： ";
 	printList(a, 10);
 
-	quickSort(a, 10);
+	//quickSort(a, 10);
 
-	cout << "结果：";
+	cout << " 结果： ";
 	printList(a, 10);
 
 	system("pause");
