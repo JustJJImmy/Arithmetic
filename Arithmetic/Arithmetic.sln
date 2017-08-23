@@ -17,8 +17,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QuickSort", "QuickSort\Quic
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MergeSort", "MergeSort\MergeSort.vcxproj", "{518E89A5-EDA6-43DE-884F-3F806433A236}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RadixSort", "RadixSort\RadixSort.vcxproj", "{FA162710-DEB6-4C40-9662-1125C61EDE76}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -83,14 +81,6 @@ Global
 		{518E89A5-EDA6-43DE-884F-3F806433A236}.Release|x64.Build.0 = Release|x64
 		{518E89A5-EDA6-43DE-884F-3F806433A236}.Release|x86.ActiveCfg = Release|Win32
 		{518E89A5-EDA6-43DE-884F-3F806433A236}.Release|x86.Build.0 = Release|Win32
-		{FA162710-DEB6-4C40-9662-1125C61EDE76}.Debug|x64.ActiveCfg = Debug|x64
-		{FA162710-DEB6-4C40-9662-1125C61EDE76}.Debug|x64.Build.0 = Debug|x64
-		{FA162710-DEB6-4C40-9662-1125C61EDE76}.Debug|x86.ActiveCfg = Debug|Win32
-		{FA162710-DEB6-4C40-9662-1125C61EDE76}.Debug|x86.Build.0 = Debug|Win32
-		{FA162710-DEB6-4C40-9662-1125C61EDE76}.Release|x64.ActiveCfg = Release|x64
-		{FA162710-DEB6-4C40-9662-1125C61EDE76}.Release|x64.Build.0 = Release|x64
-		{FA162710-DEB6-4C40-9662-1125C61EDE76}.Release|x86.ActiveCfg = Release|Win32
-		{FA162710-DEB6-4C40-9662-1125C61EDE76}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
